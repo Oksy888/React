@@ -1,0 +1,19 @@
+@import '../styles/_variables';
+@import '../styles/mixins';
+@include reset; //imported from "_mixins.scss"
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: $black;
+  @include center; //imported from "_mixins.scss"
+}
+h1 {
+  color: $grey; //imported from '_variables.scss"
+  border-bottom: 2px solid $green;
+  line-height: 1.8;
+}
+p {
+  color: $grey;
+  font-size: 25px;
+}

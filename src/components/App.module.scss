@@ -1,0 +1,21 @@
+.container {
+  background-color: darkseagreen;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 95vh;
+  overflow: hidden;
+  p {
+    margin-bottom: 1rem;
+  }
+  .toggleModal {
+    display: block;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #fa4739;
+    padding: 8px 30px;
+  }
+}
