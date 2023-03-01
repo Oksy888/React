@@ -1,0 +1,20 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1 1 50%;
+  gap: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+.innerCard {
+  width: 250px;
+  border: 1px solid rgb(1, 43, 19);
+  border-radius: 20px;
+  padding: 1rem;
+  margin: 20px;
+}
+.innerCard > img {
+  border-radius: 50%;
+  border: 1px solid rgb(83, 208, 137);
+}

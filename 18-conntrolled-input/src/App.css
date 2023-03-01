@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+button {
+  padding: 1rem;
+  font-size: 2rem;
+  border-radius: 10px;
+  border: 0;
+  margin: 2rem;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 3rem;
+}
+form {
+  font-size: 1rem;
+}
+input {
+  margin: 1rem;
+  padding: 1rem;
+}
+label {
+  display: block;
+}

@@ -1,0 +1,40 @@
+.container {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  padding: 0 2rem;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s, transform 0.7s;
+  transform: scale(0.8);
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+  }
+  .modal {
+    background-color: rgb(255, 244, 86);
+    width: 80%;
+    height: 80%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-image: url('../img/354.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+  }
+}
