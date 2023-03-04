@@ -1,6 +1,7 @@
-// import `css`and `ThemeProvider` from "@emotion/react" package
+/** @jsxImportSource @emotion/react */ // import `css`and `ThemeProvider` from "@emotion/react" package
 import { css, ThemeProvider } from '@emotion/react'
 import logo from './logo.png'
+
 import {
   theme,
   LogoSpin,
