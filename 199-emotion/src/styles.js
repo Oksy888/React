@@ -90,7 +90,7 @@ export const Button = styled.button`
   transition: all 0.25s cubic-bezier(0.02, 0.01, 0.47, 1);
 
   &:hover {
-    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.16);
   }
 `
 export const PrimaryButton = styled(Button)`
