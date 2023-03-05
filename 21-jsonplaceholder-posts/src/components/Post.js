@@ -1,22 +1,23 @@
 /** @jsxImportSource @emotion/react */
-import { jsx, css, ThemeProvider } from '@emotion/react'
-import styled from '@emotion/styled'
-import { Wrapper, theme } from '../style'
+import { css, ThemeProvider } from '@emotion/react'
+import {
+  Wrapper,
+  theme,
+  WithoutBorder,
+  SmallTextCss,
+  TableWrapper,
+  InnerData,
+} from '../style'
 
 function Post(props) {
   const { id, title, userId, body } = props
 
-  const hotpink = css({
-    color: 'hotpink',
-  })
-
   return (
     <ThemeProvider theme={theme}>
-      <Wrapper>
-        <small>{id} </small>
-        <h1>{title} </h1>
-        <p>{body} </p>
-        <h3>{userId} </h3>
+      <Wrapper color={'#afafaf1f'}>
+        <div css={[InnerData, SmallTextCss]}>{id}</div>
+        <div css={InnerData}>{title}</div>
+        <div css={WithoutBorder}>{body}</div>
       </Wrapper>
     </ThemeProvider>
   )
