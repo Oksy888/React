@@ -29,7 +29,12 @@ function App() {
   }
   return (
     <>
-      <input type="text" onChange={handleSearch}></input>
+      <label htmlFor="search-field">Search book by name</label>
+      <input
+        type="text"
+        className="text-search-field"
+        onChange={handleSearch}
+      ></input>
       {books.map((book, index) => {
         if (books.length === index + 1) {
           return (
