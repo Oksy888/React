@@ -1,7 +1,26 @@
+import axios from 'axios'
+
 class MarvelService {
   _baseURL = 'https://gateway.marvel.com:443/v1/public/'
   _apikey = 'apikey=a86b63f1c5e5603d37a06e815ed44aa8'
   _baseOffset = 210
+
+  async getResponce(url) {
+    try {
+      const res = await axios.get(url)
+      return res.data.data
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  getAllCharactersAxios = async (offset = this._baseOffset) => {
+    const res = await this.getResponce(
+      `${this._baseURL}characters?limit=9&offset=${offset}&${this._apikey}`
+    )
+    // console.log(res.results)
+    return res.results.map(this._transformCharacter)
+  }
+
   getResource = async (url) => {
     let res = await fetch(url)
     if (!res.ok) {

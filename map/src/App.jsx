@@ -36,7 +36,7 @@ function App() {
       console.log(error)
     }
   }
-  id = '7283588810008742688'
+  // id = '7283588810008742688'
 
   useEffect(() => {
     async function fetchData() {
@@ -51,9 +51,9 @@ function App() {
         console.error(error)
       }
     }
-
-    fetchData()
   }, [id])
+
+  useEffect(() => {}, [])
 
   function onItemLoaded(char) {
     const allGeo = char.map((item) => {
@@ -165,11 +165,7 @@ function App() {
   // Bind "fill" property to "fill" key in data
   polygonTemplate.propertyFields.fill = 'fill'
 */
-  return (
-    <>
-      <div id="chartdiv"></div>
-    </>
-  )
+  return <div id="chartdiv"></div>
 }
 
 export default App
