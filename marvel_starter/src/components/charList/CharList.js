@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
-import MarvelService from '../../services/MarvelService'
+import useMarvelService from '../../services/MarvelService'
 import Spinner from '../spinner/Spinner'
 import ErrorMessage from '../errorMessage/ErrorMessage'
 import useLoadMoreCharacters from '../../services/useLoadMoreCharacters'
@@ -10,27 +10,19 @@ import './charList.scss'
 
 const CharList = ({ onSelectedChar }) => {
   const [charLi, setCharList] = useState([])
-  const [load, setLoading] = useState(false)
-  const [err, setError] = useState(false)
-  const [newItemLoad, setNewItemLoading] = useState(false)
+  const [newItemLoad, setNewItemLoading] = useState(true)
   const [offs, setOffset] = useState(210)
   const [charEnd, setCharEnded] = useState(false)
   const [loadByScroll, setLoadByScroll] = useState(false)
-  const marvelService = new MarvelService()
+
+  const { loading, error, getAllCharacters } = useMarvelService()
   useEffect(() => {
     onRequest()
   }, [])
 
   const onRequest = (offset) => {
-    onCharListLoading()
-    marvelService
-      .getAllCharactersAxios(offset)
-      .then(onLoadAllCharacters)
-      .catch(onError)
-  }
-
-  const onCharListLoading = () => {
     setNewItemLoading(true)
+    getAllCharacters(offset).then(onLoadAllCharacters)
   }
 
   const onLoadAllCharacters = (NewCharList) => {
@@ -39,8 +31,6 @@ const CharList = ({ onSelectedChar }) => {
       ended = true
     }
     setCharList((charList) => [...charLi, ...NewCharList])
-    setLoading((load) => false)
-    setError((error) => false)
     setNewItemLoading((newItem) => false)
     setOffset((offset) => offset + 9)
     setCharEnded((charEnd) => ended)
@@ -65,17 +55,11 @@ const CharList = ({ onSelectedChar }) => {
     },
     [loadingUse, hasMoreItems]
   )
-  const onError = () => {
-    setError((error) => true)
-    setLoading((load) => false)
-  }
+
   const itemRefs = useRef([])
 
   const focusOnItem = (id) => {
-    console.log(id)
-
     itemRefs.current.forEach((item) => {
-      console.log(item.classList)
       item.classList.remove('char__item_selected')
     })
     itemRefs.current[id].classList.add('char__item_selected')
@@ -172,10 +156,8 @@ const CharList = ({ onSelectedChar }) => {
     return <ul className="char__grid">{items}</ul>
   }
   const items = loadByScroll ? renderItemsScroll(chars) : renderItems(charLi)
-  //const items = renderItems(charLi)
-  const loaded = load ? <Spinner /> : null
-  const errorMsg = err ? <ErrorMessage /> : null
-  const content = !(load || err) ? items : null
+  const loaded = loading && !newItemLoad ? <Spinner /> : null
+  const errorMsg = error ? <ErrorMessage /> : null
 
   return (
     <div className="char__list">
@@ -188,7 +170,7 @@ const CharList = ({ onSelectedChar }) => {
         onChange={() => setLoadByScroll(!loadByScroll)}
       />
       <label htmlFor="scales">Loading items on scroll</label>
-      {content}
+      {items}
       {loadByScroll && (
         <>
           <button

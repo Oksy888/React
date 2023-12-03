@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-import MarvelService from './MarvelService'
+import useMarvelService from './MarvelService'
 
 export default function useLoadMoreCharacters(offset) {
   const _baseURL = 'https://gateway.marvel.com:443/v1/public/'
@@ -11,7 +11,7 @@ export default function useLoadMoreCharacters(offset) {
   const [chars, setChars] = useState([])
   const [hasMoreItems, setHasMoreItems] = useState(false)
 
-  const marvelService = new MarvelService()
+  const { _transformCharacter } = useMarvelService()
 
   useEffect(() => {
     setChars([])
@@ -29,7 +29,7 @@ export default function useLoadMoreCharacters(offset) {
 
         setChars((prevChars) => [
           ...prevChars,
-          ...res.data.data.results.map(marvelService._transformCharacter),
+          ...res.data.data.results.map(_transformCharacter),
         ])
 
         setHasMoreItems(res.data.data.results.length > 0)
