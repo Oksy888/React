@@ -1,4 +1,6 @@
 import MainPage from './MainPage'
-import ComicsPagePage from './ComicsPage'
+import ComicsPage from './ComicsPage'
+import NotFound from './404'
+import SingleComicPage from './SingleComicPage'
 
-export { MainPage, ComicsPagePage }
+export { MainPage, ComicsPage, NotFound, SingleComicPage }

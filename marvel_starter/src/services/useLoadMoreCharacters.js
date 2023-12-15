@@ -25,7 +25,7 @@ export default function useLoadMoreCharacters(offset) {
       //params: { page: pageNumb },
     })
       .then((res) => {
-        console.log(res.data.data.results)
+        //console.log(res.data.data.results)
 
         setChars((prevChars) => [
           ...prevChars,

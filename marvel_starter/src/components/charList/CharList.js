@@ -10,18 +10,19 @@ import './charList.scss'
 
 const CharList = ({ onSelectedChar }) => {
   const [charLi, setCharList] = useState([])
-  const [newItemLoad, setNewItemLoading] = useState(true)
+  const [newItemLoad, setNewItemLoading] = useState(false)
   const [offs, setOffset] = useState(210)
   const [charEnd, setCharEnded] = useState(false)
   const [loadByScroll, setLoadByScroll] = useState(false)
 
   const { loading, error, getAllCharacters } = useMarvelService()
   useEffect(() => {
-    onRequest()
+    onRequest(offs, true)
   }, [])
 
-  const onRequest = (offset) => {
-    setNewItemLoading(true)
+  const onRequest = (offset, initial) => {
+    initial ? setNewItemLoading(false) : setNewItemLoading(true)
+
     getAllCharacters(offset).then(onLoadAllCharacters)
   }
 
@@ -35,7 +36,7 @@ const CharList = ({ onSelectedChar }) => {
     setOffset((offset) => offset + 9)
     setCharEnded((charEnd) => ended)
   }
-
+  console.log('CharList`')
   const { loadingUse, errorUse, chars, hasMoreItems } =
     useLoadMoreCharacters(offs)
   const observer = useRef()

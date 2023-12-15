@@ -1,12 +1,6 @@
-import ComicsPage from '../comicsPage/comicsPage'
-import { useState } from 'react'
+import Comics from '../comics/Сomics'
 
-const ComicsPagePage = () => {
-  const [selectedComiscs, setSelectedComiscs] = useState(null)
-
-  const onSelectedComics = (id) => {
-    setSelectedComiscs(id)
-  }
-  return <ComicsPage onSelectedComics={onSelectedComics} />
+const ComicsPage = () => {
+  return <Comics />
 }
-export default ComicsPagePage
+export default ComicsPage

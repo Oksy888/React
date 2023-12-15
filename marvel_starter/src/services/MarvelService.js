@@ -18,9 +18,13 @@ const useMarvelService = () => {
   }
   const getComics = async (offset = _baseOffset) => {
     const res = await request(
-      `${_baseURL}comics?issueNumber=25&limit=8&offset=${offset}&${_apikey}`
+      `${_baseURL}comics?issueNumber=10&limit=8&offset=${offset}&${_apikey}`
     )
     return res.results.map(_transformComics)
+  }
+  const getSingleComic = async (id) => {
+    const res = await request(`${_baseURL}comics/${id}?${_apikey}`)
+    return _transformComics(res.results[0])
   }
   const _transformCharacter = (char) => {
     return {
@@ -35,17 +39,19 @@ const useMarvelService = () => {
       comics: char.comics.items,
     }
   }
-  const _transformComics = (char) => {
+  const _transformComics = (comic) => {
     return {
-      id: char.id,
-      title: char.title,
-      description: char.textObjects.text
-        ? `${char.textObjects.text.slice(0, 220)} ...`
+      id: comic.id,
+      title: comic.title,
+      description: comic.description
+        ? `${comic.description.slice(0, 220)} ...`
         : 'This character has no data',
-      thumbnail: char.thumbnail.path + '.' + char.thumbnail.extension,
-      price: char.prices.prise,
-      pages: char.pageCount,
-      language: char.textObjects.language,
+      thumbnail: comic.thumbnail.path + '.' + comic.thumbnail.extension,
+      price: comic.prices[0].price
+        ? comic.prices[0].price + '$'
+        : 'No avaluable',
+      pages: `${comic.pageCount} pages` || 'No pages',
+      language: comic.textObjects.language || 'en-EN',
     }
   }
   return {
@@ -56,6 +62,7 @@ const useMarvelService = () => {
     _transformCharacter,
     clearError,
     getComics,
+    getSingleComic,
   }
 }
 
