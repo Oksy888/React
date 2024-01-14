@@ -1,8 +1,11 @@
-import { useState, memo, Component, useCallback, createContext } from 'react'
-import { Container } from 'react-bootstrap'
+import { useState, useCallback } from 'react'
+
+import dataContext from './context'
+import Form from './Form'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+const { Provider } = dataContext
 //class Form extends PureComponent {
 // class Form extends Component {
 //   shouldComponentUpdate(nextProps) {
@@ -54,41 +57,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 //     prevValue.text === nextValue.text
 //   )
 // }
-const dataContext = createContext({
-  mail: 'name@example.com',
-  text: 'some text',
-})
 
-const { Provider, Consumer } = dataContext
-
-const Form = memo((props) => {
-  console.log('render')
-  return (
-    <Container>
-      <form className="w-50 border mt-5 p-3 m-auto">
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlInput1" className="form-label mt-3">
-            Email address
-          </label>
-          <InputComponent />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlTextarea1" className="form-label">
-            Example textarea
-          </label>
-          <textarea
-            value={props.text}
-            className="form-control"
-            id="exampleFormControlTextarea1"
-            rows="3"
-          ></textarea>
-        </div>
-      </form>
-    </Container>
-  )
-})
-
-class InputComponent extends Component {
+/*class InputComponent extends Component {
   static contextType = dataContext
   render() {
     return (
@@ -104,7 +74,7 @@ class InputComponent extends Component {
             />
           )
         }}
-      </Consumer>*/
+      </Consumer>
       <input
         value={this.context.mail}
         type="email"
@@ -114,7 +84,7 @@ class InputComponent extends Component {
       />
     )
   }
-}
+}*/
 //InputComponent.contextType = dataContext
 
 // function App() {
@@ -125,16 +95,26 @@ class InputComponent extends Component {
 //     text: 'some text',
 //   })
 
-console.dir(dataContext)
+//console.dir(dataContext)
 
 function App() {
   const [data, setData] = useState({
     mail: 'name@example.com',
     text: 'some text',
+    forseChangeMail: forseChangeValue,
   })
+
   const log = useCallback(() => {
     console.log('hi')
   }, [])
+
+  function forseChangeValue() {
+    setData({
+      ...data,
+      mail: 'text@test.com',
+    })
+  }
+
   return (
     <Provider value={data}>
       <Form text={data.text} log={log} />
@@ -143,6 +123,7 @@ function App() {
           setData({
             mail: 'new@example.com',
             text: 'next text',
+            forseChangeMail: forseChangeValue,
           })
         }
       >
