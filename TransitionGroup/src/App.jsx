@@ -64,7 +64,7 @@ function App() {
   const nodeRef = state ? helloRef : goodbyeRef
   const [showModal, setShowModal] = useState(false)
   const [showTrigger, setShowTrigger] = useState(true)
-
+  console.log(nodeRef)
   return (
     <>
       <Container>
