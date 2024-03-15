@@ -1,5 +1,12 @@
 /* @jsxImportSource @emotion/react */ // import `css`and `ThemeProvider` from "@emotion/react" package
+import { useState } from 'react'
 import { css, ThemeProvider } from '@emotion/react'
+
+import Toast from 'react-bootstrap/Toast'
+import Container from 'react-bootstrap/Container'
+import Button from 'react-bootstrap/Button'
+import ToastContainer from 'react-bootstrap/ToastContainer'
+
 import logo from './logo.png'
 
 import {
@@ -14,7 +21,10 @@ import {
   PrimaryButton,
   SecondaryButton,
 } from './styles'
+import { Popover } from './components/popover'
 // import styled components, theming and animation from "./styles.js" file
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './style.css'
 
 const hotels = [
   {
@@ -40,14 +50,45 @@ const hotels = [
   },
 ]
 
+const ExampleToast = ({ children }) => {
+  const [show, toggleShow] = useState(true)
+  const [position, setPosition] = useState('top-end')
+  return (
+    <ToastContainer className="p-3" position={position} style={{ zIndex: 1 }}>
+      {!show && <Button onClick={() => toggleShow(true)}>Show Toast</Button>}
+      <Toast show={show} onClose={() => toggleShow(false)}>
+        <Toast.Header>
+          <strong className="me-auto">React-Bootstrap</strong>
+        </Toast.Header>
+        <Toast.Body>{children}</Toast.Body>
+      </Toast>
+    </ToastContainer>
+  )
+}
+
+const CardTop = () => {
+  return (
+    <div className="card my-2">
+      <div className="card-body row row-sound position-relative justify-content-between">
+        <div className="align-items-center">first block</div>
+        <div className="videos_and_growth">second block</div>
+        <div className="align-items-center">third block</div>
+      </div>
+    </div>
+  )
+}
 // Apply styling to code within the `App` component's `return` statement using styled components, theming, animation and the `css` prop
 function App() {
+  const [showA, setShowA] = useState(true)
+
+  const toggleShowA = () => setShowA(!showA)
+
   return (
     <ThemeProvider theme={theme}>
       <main
         css={(theme) => ({
           color: theme.colors.primary,
-          background: theme.colors.secondary,
+          background: theme.colors.quaternary,
           height: '1200px',
           fontFamily: theme.fonts.primary,
         })}
@@ -92,6 +133,31 @@ function App() {
             )
           })}
         </div>
+        <div className="content-wrapper container-xxl p-0">
+          <div className="content-header row">
+            <div className="content-body">
+              <CardTop />
+              <CardTop />
+              <CardTop />
+              <Popover />
+            </div>
+          </div>
+        </div>
+        <Button onClick={toggleShowA} className="mb-2">
+          Toggle Toast <strong>with</strong> Animation
+        </Button>
+        <Toast show={showA} onClose={toggleShowA}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded me-2"
+              alt=""
+            />
+            <strong className="me-auto">Bootstrap</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
+        </Toast>
       </main>
     </ThemeProvider>
   )
