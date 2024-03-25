@@ -26,7 +26,8 @@ export const videos = [
     postedAt: new Date('2024-01-01'),
     duration: 31,
     thumbnailUrl: 'https://i.ytimg.com/vi/ClPG3BZTfWg/hqdefault.jpg',
-    videoUrl: '',
+    videoUrl:
+      'https://v16m-default.akamaized.net/1c0c2f60f47a458b21431e220801ff28/65f732a2/video/tos/maliva/tos-maliva-ve-0068c801-us/oMwEQDqnQOCBYJDebSlRBQAVIeZY7GEucy4A6J/?a=0&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&br=728&bt=364&bti=bGRuZHxvMXIxcm53Zm1cYF9ebWFzaHFmOg%3D%3D&cs=0&ds=6&ft=aEKpCqT0m7jPD12zAdZR3wULSDyKMeF~O5&mime_type=video_mp4&qs=13&rc=M2gzOWQ6ZnZ2bjMzNzczM0BpM2gzOWQ6ZnZ2bjMzNzczM0BpMzBzcjRnMWBgLS1kMTZzYSNpMzBzcjRnMWBgLS1kMTZzcw%3D%3D&vvpl=1&l=202403171211586180B434999C82186D03&btag=e00048000&cc=3',
   },
   {
     id: '0mxeS0i6l8w',
@@ -43,7 +44,7 @@ export const videos = [
     thumbnailUrl:
       'https://i.ytimg.com/vi/ngDqbbJcnB0/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShWMA8=&rs=AOn4CLC-m5dYsCqRoi6FU0clEekg0VOlow',
     videoUrl:
-      'https://v16m-default.akamaized.net/33070edfb358c34e91c2c6df4a4b11fb/65e91ba3/video/tos/maliva/tos-maliva-ve-0068c801-us/oAUIgkyAXUwP0KVazgIqFTf64BQAkotBh8CKaU/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&br=682&bt=341&bti=OUBzOTg7QGo6OjZAL3AjLTAzYCMxNDNg&cs=0&ds=6&ft=XE5bCqT0m7jPD12bUakR3wUTDvyKMeF~O5&mime_type=video_mp4&qs=0&rc=OGdpNGc0ZTo1OWk5N2k0N0BpajhscDQ6ZjhpbDMzNzczM0BfYTNfXy8vNjUxMGJiLV8vYSNeaGg0cjRfLWFgLS1kMTZzcw%3D%3D&l=202403061942301AED074F89DC3D3FC582&btag=e00088000',
+      'https://v16m-default.akamaized.net/1c0c2f60f47a458b21431e220801ff28/65f732a2/video/tos/maliva/tos-maliva-ve-0068c801-us/oMwEQDqnQOCBYJDebSlRBQAVIeZY7GEucy4A6J/?a=0&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&br=728&bt=364&bti=bGRuZHxvMXIxcm53Zm1cYF9ebWFzaHFmOg%3D%3D&cs=0&ds=6&ft=aEKpCqT0m7jPD12zAdZR3wULSDyKMeF~O5&mime_type=video_mp4&qs=13&rc=M2gzOWQ6ZnZ2bjMzNzczM0BpM2gzOWQ6ZnZ2bjMzNzczM0BpMzBzcjRnMWBgLS1kMTZzYSNpMzBzcjRnMWBgLS1kMTZzcw%3D%3D&vvpl=1&l=202403171211586180B434999C82186D03&btag=e00048000&cc=3',
   },
   {
     id: '3',
@@ -60,7 +61,7 @@ export const videos = [
     thumbnailUrl:
       'https://i.ytimg.com/vi/ngDqbbJcnB0/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShWMA8=&rs=AOn4CLC-m5dYsCqRoi6FU0clEekg0VOlow',
     videoUrl:
-      'https://v16m-default.akamaized.net/f0a480c21add626da841119c0c515cfd/65e91c24/video/tos/maliva/tos-maliva-ve-0068c801-us/oUuTkIOUzz1vpAO8ohNPAROAhf00rygCGMnIId/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&br=906&bt=453&bti=OUBzOTg7QGo6OjZAL3AjLTAzYCMxNDNg&cs=0&ds=6&ft=XE5bCqT0m7jPD12nYakR3wUi.UyKMeF~O5&mime_type=video_mp4&qs=0&rc=OjtkNjc0aTU0aDMzNDNmO0BpanZoZ2Y6ZjptbDMzNzczM0BiLjIwLTUzNV4xLWIwYmMvYSNnMDNucjQwY2JgLS1kMTZzcw%3D%3D&l=20240306194451721232BBE3CA4A421A31&btag=e00088000',
+      'https://v16m-default.akamaized.net/1c0c2f60f47a458b21431e220801ff28/65f732a2/video/tos/maliva/tos-maliva-ve-0068c801-us/oMwEQDqnQOCBYJDebSlRBQAVIeZY7GEucy4A6J/?a=0&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&br=728&bt=364&bti=bGRuZHxvMXIxcm53Zm1cYF9ebWFzaHFmOg%3D%3D&cs=0&ds=6&ft=aEKpCqT0m7jPD12zAdZR3wULSDyKMeF~O5&mime_type=video_mp4&qs=13&rc=M2gzOWQ6ZnZ2bjMzNzczM0BpM2gzOWQ6ZnZ2bjMzNzczM0BpMzBzcjRnMWBgLS1kMTZzYSNpMzBzcjRnMWBgLS1kMTZzcw%3D%3D&vvpl=1&l=202403171211586180B434999C82186D03&btag=e00048000&cc=3',
   },
   {
     id: '4',
@@ -77,7 +78,7 @@ export const videos = [
     thumbnailUrl:
       'https://i.ytimg.com/vi/ngDqbbJcnB0/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShWMA8=&rs=AOn4CLC-m5dYsCqRoi6FU0clEekg0VOlow',
     videoUrl:
-      'https://v16m-default.akamaized.net/f0a480c21add626da841119c0c515cfd/65e91c24/video/tos/maliva/tos-maliva-ve-0068c801-us/oUuTkIOUzz1vpAO8ohNPAROAhf00rygCGMnIId/?a=0&ch=0&cr=0&dr=0&lr=all&cd=0%7C0%7C0%7C0&br=906&bt=453&bti=OUBzOTg7QGo6OjZAL3AjLTAzYCMxNDNg&cs=0&ds=6&ft=XE5bCqT0m7jPD12nYakR3wUi.UyKMeF~O5&mime_type=video_mp4&qs=0&rc=OjtkNjc0aTU0aDMzNDNmO0BpanZoZ2Y6ZjptbDMzNzczM0BiLjIwLTUzNV4xLWIwYmMvYSNnMDNucjQwY2JgLS1kMTZzcw%3D%3D&l=20240306194451721232BBE3CA4A421A31&btag=e00088000',
+      'https://v16m-default.akamaized.net/1c0c2f60f47a458b21431e220801ff28/65f732a2/video/tos/maliva/tos-maliva-ve-0068c801-us/oMwEQDqnQOCBYJDebSlRBQAVIeZY7GEucy4A6J/?a=0&ch=0&cr=0&dr=0&er=0&cd=0%7C0%7C0%7C0&br=728&bt=364&bti=bGRuZHxvMXIxcm53Zm1cYF9ebWFzaHFmOg%3D%3D&cs=0&ds=6&ft=aEKpCqT0m7jPD12zAdZR3wULSDyKMeF~O5&mime_type=video_mp4&qs=13&rc=M2gzOWQ6ZnZ2bjMzNzczM0BpM2gzOWQ6ZnZ2bjMzNzczM0BpMzBzcjRnMWBgLS1kMTZzYSNpMzBzcjRnMWBgLS1kMTZzcw%3D%3D&vvpl=1&l=202403171211586180B434999C82186D03&btag=e00048000&cc=3',
   },
   {
     id: '5',
