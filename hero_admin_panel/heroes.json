@@ -1,0 +1,55 @@
+{
+  "heroes": [
+    {
+      "id": "1",
+      "name": "Первый герой",
+      "description": "Первый герой в рейтинге!",
+      "element": "fire"
+    },
+    {
+      "id": "f6847d6f-c484-4ddd-869c-fef0b74ea1de",
+      "name": "Второй герой",
+      "description": "Супер пупер",
+      "element": "wind"
+    },
+    {
+      "id": "804e6295-0c9e-404b-8d86-3b04ab4cdaa8",
+      "name": "rrrrrr",
+      "description": "rrrrrrrrrr",
+      "element": "water"
+    },
+    {
+      "id": "332fa912-30c2-40ce-a5e0-0b6cc0a4768b",
+      "name": "xx",
+      "description": "xxx",
+      "element": "earth"
+    }
+  ],
+  "filters": [
+    {
+      "id": "1",
+      "name": "all",
+      "className": "btn-outline-dark"
+    },
+    {
+      "id": "2",
+      "name": "fire",
+      "className": "btn-danger"
+    },
+    {
+      "id": "3",
+      "name": "water",
+      "className": "btn-primary"
+    },
+    {
+      "id": "4",
+      "name": "wind",
+      "className": "btn-success"
+    },
+    {
+      "id": "5",
+      "name": "earth",
+      "className": "btn-secondary"
+    }
+  ]
+}
