@@ -1,12 +1,6 @@
 {
   "heroes": [
     {
-      "id": "1",
-      "name": "Первый герой",
-      "description": "Первый герой в рейтинге!",
-      "element": "fire"
-    },
-    {
       "id": "f6847d6f-c484-4ddd-869c-fef0b74ea1de",
       "name": "Второй герой",
       "description": "Супер пупер",
@@ -19,10 +13,28 @@
       "element": "water"
     },
     {
-      "id": "332fa912-30c2-40ce-a5e0-0b6cc0a4768b",
-      "name": "xx",
-      "description": "xxx",
+      "id": "9bce4f67-4dc6-4fb7-8d21-815e30373de5",
+      "name": "вапва",
+      "description": "вапвап",
+      "element": "fire"
+    },
+    {
+      "id": "d0453fcc-75a1-446c-b592-8a2ecd3cf3ad",
+      "name": "вапвап",
+      "description": "вапвап",
       "element": "earth"
+    },
+    {
+      "id": "36a99bbb-2200-4562-87ce-a665548dac8d",
+      "name": "вапвап",
+      "description": "вапвап",
+      "element": "wind"
+    },
+    {
+      "id": "8eba62b7-ecd2-4220-bbcd-a6981dffc5cd",
+      "name": "вапв",
+      "description": "вапвап",
+      "element": "water"
     }
   ],
   "filters": [

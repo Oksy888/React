@@ -3,11 +3,10 @@ import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
-  heroesFetching,
-  heroesFetched,
-  heroesFetchingError,
-  heroesDelete,
-} from '../../actions'
+  heroDeleted,
+  fetchHeroes,
+  filteredHeroesSelector,
+} from '../heroesList/herosSlice'
 import HeroesListItem from '../heroesListItem/HeroesListItem'
 import Spinner from '../spinner/Spinner'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
@@ -20,33 +19,32 @@ import './heroesList.scss'
 // Удаление идет и с json файла при помощи метода DELETE
 
 const HeroesList = () => {
+  /*
   const filteredHeroes = useSelector((state) => {
-    if (state.activeFilter === 'all') {
-      return state.heroes
+    if (state.filters.activeFilter === 'all') {
+      return state.heroes.heroes
     } else {
-      return state.heroes.filter((item) => item.element === state.activeFilter)
+      return state.heroes.heroes.filter(
+        (item) => item.element === state.filters.activeFilter
+      )
     }
-  })
-
+  })*/
+  const filteredHeroes = useSelector(filteredHeroesSelector)
   const { heroesLoadingStatus } = useSelector(
-    (state) => state.heroesLoadingStatus
+    (state) => state.heroes.heroesLoadingStatus
   )
   const dispatch = useDispatch()
   const { request } = useHttp()
 
   useEffect(() => {
-    dispatch(heroesFetching())
-    request('http://localhost:3001/heroes')
-      .then((data) => dispatch(heroesFetched(data)))
-      .catch(() => dispatch(heroesFetchingError()))
-
+    dispatch(fetchHeroes())
     // eslint-disable-next-line
   }, [])
   const onDelete = useCallback(
     (id) => {
       request(`http://localhost:3001/heroes/${id}`, 'DELETE')
         .then((data) => console.log(data, 'deleted'))
-        .then(dispatch(heroesDelete(id)))
+        .then(dispatch(heroDeleted(id)))
         .catch((err) => console.log(err))
     },
     [request]
@@ -59,8 +57,13 @@ const HeroesList = () => {
   }
 
   const renderHeroesList = (arr) => {
+    console.log('render')
     if (arr.length === 0) {
-      return <h5 className="text-center mt-5">Героев пока нет</h5>
+      return (
+        <CSSTransition timeout={0} classNames="hero">
+          <h5 className="text-center mt-5">Героев пока нет</h5>
+        </CSSTransition>
+      )
     } else {
       return arr.map(({ id, ...props }) => {
         return (

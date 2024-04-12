@@ -4,33 +4,28 @@
 // Активный фильтр имеет класс active
 // Изменять json-файл для удобства МОЖНО!
 // Представьте, что вы попросили бэкенд-разработчика об этом
-import { useHttp } from '../../hooks/http.hook'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import classNames from 'classnames'
 
 import {
-  filtersFetching,
-  filtersFetched,
   filtersChanged,
-  filtersFetchingError,
-} from '../../actions'
+  fetchFilters,
+  selectAll,
+} from '../heroesFilters/filtersSlice'
 import Spinner from '../spinner/Spinner'
+import store from '../../store'
 
 const HeroesFilters = () => {
-  const { filters, filtersLoadingStatus, activeFilter } = useSelector(
-    (state) => state
+  const { filtersLoadingStatus, activeFilter } = useSelector(
+    (state) => state.filters
   )
+  const filters = selectAll(store.getState())
   const dispatch = useDispatch()
-  const { request } = useHttp()
 
   // Запрос на сервер для получения фильтров и последовательной смены состояния
   useEffect(() => {
-    dispatch(filtersFetching())
-    request('http://localhost:3001/filters')
-      .then((data) => dispatch(filtersFetched(data)))
-      .catch(() => dispatch(filtersFetchingError()))
-
+    dispatch(fetchFilters())
     // eslint-disable-next-line
   }, [])
 
