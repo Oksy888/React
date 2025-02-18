@@ -11,7 +11,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
 }
 
 a {
@@ -66,18 +65,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
-.apexcharts-point-annotations {
-  cursor: pointer;
-  padding: 2rem;
-  border: 2px solid #c2fc46;
-}
-
-.apexcharts-legend-series {
-  display: flex !important;
-  align-items: center;
-  padding: 0.5rem 0.8rem;
-  background: #ffffff2b;
-  border-radius: 3em;
-  vertical-align: bottom;
 }
