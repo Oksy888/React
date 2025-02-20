@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from 'uuid'
 import AppFilter from './components/app-filter/app-filter'
 import AppInfo from './components/app-info/app-info'
 import EmployeesAddForm from './components/employes-add-form/employes-add-form'
-import EmployesList from './components/employes-list/employes-list'
-import SearchPannel from './components/search-panel/search-panel'
+import EmployeesList from './components/employes-list/employes-list'
+import SearchPanel from './components/search-panel/search-panel'
 import './App.css'
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
       filter: 'all',
     }
   }
-  deletItem = (id) => {
+  deleteItem = (id) => {
     this.setState(({ data }) => {
       /*const index = data.findIndex((elem) => elem.id === id)
       const before = data.slice(0, index)
@@ -86,6 +86,8 @@ class App extends Component {
     switch (filter) {
       case 'rise':
         return items.filter((el) => el.rise)
+      case 'increase':
+        return items.filter((el) => el.increase)
       case 'moreThan1000':
         return items.filter((el) => el.salary > 1000)
       default:
@@ -99,17 +101,22 @@ class App extends Component {
     const { data, term, filter } = this.state
     const increased = data.filter((el) => el.increase).length
     const visibleData = this.filterPost(this.searchEmpl(data, term), filter)
+    const countBonus = data.length - increased
     return (
       <div className="app">
-        <AppInfo countItems={data.length} countIncrease={increased} />
+        <AppInfo
+          countItems={data.length}
+          countIncrease={increased}
+          countBonus
+        />
         <div className="search-panel">
-          <SearchPannel onUpdateSearch={this.onUpdateSearch} />
+          <SearchPanel onUpdateSearch={this.onUpdateSearch} />
           <AppFilter filter={filter} onFilterSelect={this.onFilterSelect} />
         </div>
-        <EmployesList
+        <EmployeesList
           onToggleProp={this.onToggleProp}
           data={visibleData}
-          onDelete={this.deletItem}
+          onDelete={this.deleteItem}
         />
         <EmployeesAddForm onAdd={this.addItem} />
       </div>

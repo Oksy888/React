@@ -1,11 +1,11 @@
-import EmployesListItem from '../employes-list-item/employes-list-item'
+import EmployeesListItem from '../employes-list-item/employes-list-item'
 import './employes-list.css'
 
-const EmployesList = ({ data, onDelete, onToggleProp }) => {
+const EmployeesList = ({ data, onDelete, onToggleProp }) => {
   const elements = data.map((item) => {
     const { id, ...itemProps } = item
     return (
-      <EmployesListItem
+      <EmployeesListItem
         key={id}
         {...itemProps}
         onToggleProp={(e) =>
@@ -18,4 +18,4 @@ const EmployesList = ({ data, onDelete, onToggleProp }) => {
   //console.log(elements)
   return <ul className="app-list list-group">{elements}</ul>
 }
-export default EmployesList
+export default EmployeesList

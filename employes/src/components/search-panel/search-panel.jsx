@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import './search-panel.css'
-class SearchPannel extends Component {
+class SearchPanel extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,4 +24,4 @@ class SearchPannel extends Component {
     )
   }
 }
-export default SearchPannel
+export default SearchPanel

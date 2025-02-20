@@ -3,11 +3,15 @@ const AppFilter = ({ filter, onFilterSelect }) => {
   const buttonsData = [
     {
       name: 'all',
-      label: 'All employes',
+      label: 'All employees',
     },
     {
       name: 'rise',
-      label: 'Employes to bonus',
+      label: 'Employees with bonus',
+    },
+    {
+      name: 'increase',
+      label: 'Employees to bonus',
     },
     {
       name: 'moreThan1000',
